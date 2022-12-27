@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,7 +48,7 @@ public class ActivosFijosController {
 	@PostMapping(value="/save")
 	public ResponseEntity<ActivosFijos> save(@RequestBody ActivosFijos activosFijos){
 		ActivosFijos obj = activosFijosAPI.save(activosFijos);
-		return new ResponseEntity<ActivosFijos>(obj, HttpStatus.OK);
+		return new ResponseEntity<ActivosFijos>(obj, HttpStatusCode.valueOf(200));
 	}
 	
 	@GetMapping(value="/delete/{id}")
